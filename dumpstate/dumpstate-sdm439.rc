@@ -1,4 +1,4 @@
-service vendor.dumpstate-default /vendor/bin/hw/android.hardware.dumpstate-service.mithorium --service
+service vendor.dumpstate-default /vendor/bin/hw/android.hardware.dumpstate-service.sdm439 --service
     class hal
     user system
     group system

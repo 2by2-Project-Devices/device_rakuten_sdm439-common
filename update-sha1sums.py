@@ -17,63 +17,74 @@
 #
 
 from hashlib import sha1
+from pathlib import Path
 import sys
 
-device='mithorium-common'
-vendor='xiaomi'
+device = 'sdm439-common'
+vendor = 'rakuten'
 
-lines = [ line for line in open('proprietary-files.txt', 'r') ]
-vendorPath = '../../../vendor/' + vendor + '/' + device + '/proprietary'
-needSHA1 = False
+vendor_path = '../../../vendor/' + vendor + '/' + device + '/proprietary'
+proprietary_files = sorted(Path('.').glob('proprietary-files*.txt'))
 
-def cleanup():
-  for index, line in enumerate(lines):
-    # Remove '\n' character
-    line = line[:-1]
 
-    # Skip empty or commented lines
-    if len(line) == 0 or line[0] == '#':
-      continue
+def split_line(line):
+    entry, *sha1_parts = line.split('|', 1)
+    metadata = ''
+    if ';' in entry:
+        entry, metadata = entry.split(';', 1)
+        metadata = ';' + metadata
 
-    # Drop SHA1 hash, if existing
-    if '|' in line:
-      line = line.split('|')[0]
-      lines[index] = '%s\n' % (line)
+    return entry, metadata, sha1_parts[0] if sha1_parts else None
 
-def update():
-  for index, line in enumerate(lines):
-    # Remove '\n' character
-    line = line[:-1]
 
-    # Skip empty lines
-    if len(line) == 0:
-      continue
+def get_file_path(line):
+    entry, _, _ = split_line(line)
+    file_path = entry.split(':', 1)[1] if ':' in entry else entry
+    return file_path[1:] if file_path.startswith('-') else file_path
 
-    # Check if we need to set SHA1 hash for the next files
-    if line[0] == '#':
-      needSHA1 = (' - from' in line)
-      continue
 
-    if needSHA1:
-      # Remove existing SHA1 hash
-      line = line.split('|')[0]
-      filePath = line.split(':')[1] if len(line.split(':')) == 2 else line
+def cleanup(lines):
+    for index, line in enumerate(lines):
+        line = line.rstrip('\n')
 
-      if filePath[0] == '-':
-        file = open('%s/%s' % (vendorPath, filePath[1:]), 'rb').read()
-      else:
-        file = open('%s/%s' % (vendorPath, filePath), 'rb').read()
+        if not line or line[0] == '#':
+            continue
 
-      hash = sha1(file).hexdigest()
-      lines[index] = '%s|%s\n' % (line, hash)
+        entry, metadata, _ = split_line(line)
+        lines[index] = '%s%s\n' % (entry, metadata)
 
-if len(sys.argv) == 2 and sys.argv[1] == '-c':
-  cleanup()
-else:
-  update()
 
-with open('proprietary-files.txt', 'w') as file:
-  for line in lines:
-    file.write(line)
+def update(lines):
+    need_sha1 = False
 
-  file.close()
+    for index, line in enumerate(lines):
+        line = line.rstrip('\n')
+
+        if not line:
+            continue
+
+        if line[0] == '#':
+            need_sha1 = ' - from' in line
+            continue
+
+        if need_sha1:
+            entry, metadata, _ = split_line(line)
+            file_path = get_file_path(entry)
+
+            with open('%s/%s' % (vendor_path, file_path), 'rb') as file:
+                file_hash = sha1(file.read()).hexdigest()
+
+            lines[index] = '%s%s|%s\n' % (entry, metadata, file_hash)
+
+
+for proprietary_file in proprietary_files:
+    with proprietary_file.open('r') as file:
+        lines = file.readlines()
+
+    if len(sys.argv) == 2 and sys.argv[1] == '-c':
+        cleanup(lines)
+    else:
+        update(lines)
+
+    with proprietary_file.open('w') as file:
+        file.writelines(lines)

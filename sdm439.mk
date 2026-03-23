@@ -182,11 +182,11 @@ PRODUCT_PACKAGES += \
 
 # Dumpstate
 PRODUCT_PACKAGES += \
-    android.hardware.dumpstate-service.mithorium
+    android.hardware.dumpstate-service.sdm439
 
 # Fastbootd
 PRODUCT_PACKAGES += \
-    android.hardware.fastboot-service.xiaomi_mithorium_recovery \
+    android.hardware.fastboot-service.rakuten_sdm439_recovery \
     fastbootd
 
 # FM
@@ -270,7 +270,7 @@ endif
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.lights-service.xiaomi_mithorium
+    android.hardware.lights-service.rakuten_sdm439
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
@@ -362,7 +362,6 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
     init.target.rc \
-    init.xiaomi.rc \
     ueventd.qcom.rc
 
 PRODUCT_PACKAGES += \
@@ -434,7 +433,7 @@ PRODUCT_BOOT_JARS += \
 
 # Thermal
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0-service.qti.xiaomi_mithorium
+    android.hardware.thermal@2.0-service.qti.rakuten_sdm439
 
 # USB
 PRODUCT_PACKAGES += \
@@ -488,4 +487,4 @@ PRODUCT_PACKAGES += \
     firmware_WCNSS_wlan_dictionary.dat_symlink
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/xiaomi/mithorium-common/mithorium-common-vendor.mk)
+$(call inherit-product, vendor/rakuten/sdm439-common/sdm439-common-vendor.mk)

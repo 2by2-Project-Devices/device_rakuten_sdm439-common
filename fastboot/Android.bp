@@ -14,9 +14,9 @@
 // limitations under the License.
 
 cc_binary {
-    name: "android.hardware.fastboot-service.xiaomi_mithorium_recovery",
-    init_rc: ["android.hardware.fastboot-service.xiaomi_mithorium_recovery.rc"],
-    vintf_fragments: ["android.hardware.fastboot-service.xiaomi_mithorium.xml"],
+    name: "android.hardware.fastboot-service.rakuten_sdm439_recovery",
+    init_rc: ["android.hardware.fastboot-service.rakuten_sdm439_recovery.rc"],
+    vintf_fragments: ["android.hardware.fastboot-service.rakuten_sdm439.xml"],
     recovery: true,
     srcs: [
         "Fastboot.cpp",

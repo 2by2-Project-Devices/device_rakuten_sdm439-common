@@ -2,14 +2,14 @@ soong_namespace {
 }
 
 soong_config_module_type {
-    name: "mithorium_firmware_wlan_mac_bin_install_symlink",
+    name: "sdm439_firmware_wlan_mac_bin_install_symlink",
     module_type: "install_symlink",
-    config_namespace: "MITHORIUM_FIRMWARE_WLAN_MAC_BIN",
+    config_namespace: "SDM439_FIRMWARE_WLAN_MAC_BIN",
     value_variables: ["SYMLINK_TARGET"],
     properties: ["symlink_target"],
 }
 
-mithorium_firmware_wlan_mac_bin_install_symlink {
+sdm439_firmware_wlan_mac_bin_install_symlink {
     name: "firmware_wlan_mac.bin_symlink",
     vendor: true,
     installed_location: "firmware/wlan/prima/wlan_mac.bin",

@@ -4,19 +4,11 @@
 
 # ADSP
 -vendor/bin/adsprpcd;DISABLE_DEPS
--vendor/bin/dspservice;DISABLE_DEPS
-vendor/etc/init/vendor.qti.adsprpc-guestos-service.rc
-vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc
-vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
 -vendor/lib/libadsprpc.so;DISABLE_DEPS
 -vendor/lib/libfastcvadsp_stub.so;DISABLE_DEPS
 -vendor/lib/libfastcvopt.so;DISABLE_DEPS
--vendor/lib/libsysmon_cdsp_skel.so;DISABLE_DEPS
--vendor/lib/vendor.qti.hardware.dsp@1.0.so;DISABLE_DEPS
 -vendor/lib64/libadsp_default_listener.so;DISABLE_DEPS
 -vendor/lib64/libadsprpc.so;DISABLE_DEPS
--vendor/lib64/libsysmon_cdsp_skel.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.hardware.dsp@1.0.so;DISABLE_DEPS
 
 # ADSP Modules
 -vendor/lib/rfsa/adsp/libapps_mem_heap.so;DISABLE_DEPS
@@ -27,10 +19,9 @@ vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
 -vendor/lib/rfsa/adsp/libscveT2T_skel.so;DISABLE_DEPS
 
 # ANT
--vendor/lib64/hw/com.dsi.ant@1.0-impl.so;DISABLE_DEPS
+-vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so;DISABLE_DEPS
 
 # Audio
-#vendor/lib/libssrec.so
 -vendor/lib/hw/sound_trigger.primary.msm8937.so;DISABLE_DEPS
 -vendor/lib/libacdb-fts.so;DISABLE_DEPS
 -vendor/lib/libacdbloader.so;DISABLE_DEPS
@@ -46,7 +37,6 @@ vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
 -vendor/lib/libgcs-ipc.so;DISABLE_DEPS
 -vendor/lib/libgcs-osal.so;DISABLE_DEPS
 -vendor/lib/libgcs.so;DISABLE_DEPS
--vendor/lib/libhdmipassthru.so;DISABLE_DEPS
 -vendor/lib/libmulawdec.so;DISABLE_DEPS
 -vendor/lib/libqtigef.so;DISABLE_DEPS
 -vendor/lib/libsmwrapper.so;DISABLE_DEPS
@@ -59,91 +49,87 @@ vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
 # Bluetooth & FM
 -vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti;DISABLE_DEPS
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
--vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so;DISABLE_DEPS
--vendor/lib64/hw/vendor.qti.hardware.btconfigstore@2.0-impl.so;DISABLE_DEPS
 -vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so;DISABLE_DEPS
 -vendor/lib64/libbtnv.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so;DISABLE_DEPS
 -vendor/lib64/vendor.qti.hardware.fm@1.0.so;DISABLE_DEPS
 
 # Bluetooth - from FP3
--vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so;DISABLE_DEPS
+-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so;DISABLE_DEPS|1e238b1e84d889f424001f5134f0d2994d13251a
 
 # Camera libts - from riva
--vendor/lib/libts_detected_face_hal.so;DISABLE_DEPS
--vendor/lib/libts_face_beautify_hal.so;DISABLE_DEPS
+-vendor/lib/libts_detected_face_hal.so;DISABLE_DEPS|d000a683dd5d2b8a16201e1ef6d68234d76d2f9f
+-vendor/lib/libts_face_beautify_hal.so;DISABLE_DEPS|4cc684d316706d4645d6e06ef6a46e15f988067d
 
 # CACert - from FP3
--vendor/app/CACertService/CACertService.apk
--vendor/lib64/libcacertclient.so;DISABLE_DEPS
--vendor/lib64/libjnihelper.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.hardware.cacert@1.0.so;DISABLE_DEPS
+-vendor/app/CACertService/CACertService.apk;NODEXPO|e33ff0c06356a8fa843f49dfa27ee21c77733738
+-vendor/lib64/libcacertclient.so;DISABLE_DEPS|69ae73b9be13507ff39398ac5813ad709b8b7c32
+-vendor/lib64/libjnihelper.so;DISABLE_DEPS|d3687f06782adc074a38b9ff3c1aacd57ec7a6e7
+-vendor/lib64/vendor.qti.hardware.cacert@1.0.so;DISABLE_DEPS|1633c31212d1ea9338b79ebfc2476f83424f36ee
 
 # CNE - from FP3
--vendor/app/CneApp/CneApp.apk;REQUIRED=CneApp.libvndfwk_detect_jni.qti_symlink
--vendor/app/IWlanService/IWlanService.apk
--vendor/bin/cnd;DISABLE_DEPS
-vendor/etc/init/cnd.rc
--vendor/lib64/libcne.so;DISABLE_DEPS
--vendor/lib64/libcneapiclient.so;DISABLE_DEPS
--vendor/lib64/libcneoplookup.so;DISABLE_DEPS
--vendor/lib64/libwms.so;DISABLE_DEPS
--vendor/lib64/libwqe.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.data.factory@2.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.data.factory@2.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.data.factory@2.2.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.data.factory@2.3.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.data.mwqem@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.data.slm@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.data.cne.internal.api@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.data.cne.internal.constants@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.data.cne.internal.server@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.data.dynamicdds@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.data.latency@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.data.lce@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.data.qmi@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.mwqemadapter@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.slmadapter@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.latency@2.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.latency@2.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
+-vendor/app/CneApp/CneApp.apk;NODEXPO;REQUIRED=CneApp.libvndfwk_detect_jni.qti_symlink|551d0e3251eeda3af8dfa8bb55cd83b858365db8
+-vendor/app/IWlanService/IWlanService.apk;NODEXPO|a8bdac9638bc711e23269d2eead3f46a7b3b6a25
+-vendor/bin/cnd;DISABLE_DEPS|78d2771551abf43a093a0fbe0aba933c9f6a8097
+vendor/etc/init/cnd.rc|3a5183df3479500fb729493bc56c71166fc10bce
+-vendor/lib64/libcne.so;DISABLE_DEPS|f7565b0b97975e7021bd007b8387ccc839a8dad9
+-vendor/lib64/libcneapiclient.so;DISABLE_DEPS|b6479678e5b0e8b46d8df5eb8bd610aa17be00d0
+-vendor/lib64/libcneoplookup.so;DISABLE_DEPS|3ce1039ad657d889f90140cb630eb487d2e711df
+-vendor/lib64/libwms.so;DISABLE_DEPS|1b91f43e9e9a8f143cddd1d945c63d384c65541c
+-vendor/lib64/libwqe.so;DISABLE_DEPS|5561170b3ee4d9233a0e4f384be08e2e1d01f0f5
+-vendor/lib64/vendor.qti.data.factory@2.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|748bfbaa57a409b8962e2b1725e1415e423a7315
+-vendor/lib64/vendor.qti.data.factory@2.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|bb1f3fa22563282ee24bf03ca681fdc45551feef
+-vendor/lib64/vendor.qti.data.factory@2.2.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|6951ff98d20902678e8af584c7b4cf89e360f31b
+-vendor/lib64/vendor.qti.data.factory@2.3.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|e9992039c400ef5fb57db62e108873a219348b4c
+-vendor/lib64/vendor.qti.data.mwqem@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|81c450f4fb69f283a0f5b31977264ffacc3dc885
+-vendor/lib64/vendor.qti.data.slm@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|fd136f7a6ff49db9748b5e245a67f33aa3f21858
+-vendor/lib64/vendor.qti.hardware.data.cne.internal.api@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|e4d002e61b2d6a4d3826e0563ee16cac74696833
+-vendor/lib64/vendor.qti.hardware.data.cne.internal.constants@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|f87a303f7a092c4d18b7db91d5162a777c920817
+-vendor/lib64/vendor.qti.hardware.data.cne.internal.server@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|7d80cd3bda9fd34dd1629116124579e5a4a787f5
+-vendor/lib64/vendor.qti.hardware.data.dynamicdds@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|cd51703f1ff29c57e545df41592be32c43ed00c0
+-vendor/lib64/vendor.qti.hardware.data.latency@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|72345083feb96e9ecd86d49725d4815b075c9646
+-vendor/lib64/vendor.qti.hardware.data.lce@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|5932523774458c69122d797ed017a1651b40c7a6
+-vendor/lib64/vendor.qti.hardware.data.qmi@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|851db5940d5e9e4330e16221be114aef14f52325
+-vendor/lib64/vendor.qti.hardware.mwqemadapter@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|c041dbfc99643e791e52c4e7f3a87050a8cd6c93
+-vendor/lib64/vendor.qti.hardware.slmadapter@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|000e0d2ac4450c0ad8baca06985bc9065e119f1e
+-vendor/lib64/vendor.qti.latency@2.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|82196d2863e012ad2b6e1b9af9d9ce7c611f64be
+-vendor/lib64/vendor.qti.latency@2.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|d279c5e456bb3e546130df3cd6f398cea6b48eaf
 
 # CNE configs - from FP3
-vendor/etc/cne/mwqem.conf
-vendor/etc/cne/profileMwqem.xml
-vendor/etc/cne/wqeclient/ATT/ATT_profile1.xml
-vendor/etc/cne/wqeclient/ATT/ATT_profile2.xml
-vendor/etc/cne/wqeclient/ATT/ATT_profile3.xml
-vendor/etc/cne/wqeclient/ATT/ATT_profile4.xml
-vendor/etc/cne/wqeclient/ATT/ATT_profile5.xml
-vendor/etc/cne/wqeclient/ATT/ATT_profile6.xml
-vendor/etc/cne/wqeclient/ROW/ROW_profile1.xml
-vendor/etc/cne/wqeclient/ROW/ROW_profile15.xml
-vendor/etc/cne/wqeclient/ROW/ROW_profile16.xml
-vendor/etc/cne/wqeclient/ROW/ROW_profile17.xml
-vendor/etc/cne/wqeclient/ROW/ROW_profile18.xml
-vendor/etc/cne/wqeclient/ROW/ROW_profile19.xml
-vendor/etc/cne/wqeclient/ROW/ROW_profile2.xml
-vendor/etc/cne/wqeclient/ROW/ROW_profile20.xml
-vendor/etc/cne/wqeclient/ROW/ROW_profile21.xml
-vendor/etc/cne/wqeclient/ROW/ROW_profile3.xml
-vendor/etc/cne/wqeclient/ROW/ROW_profile32.xml
-vendor/etc/cne/wqeclient/ROW/ROW_profile4.xml
-vendor/etc/cne/wqeclient/ROW/ROW_profile5.xml
-vendor/etc/cne/wqeclient/ROW/ROW_profile6.xml
-vendor/etc/cne/wqeclient/ROW/ROW_profile7.xml
-vendor/etc/cne/wqeclient/VZW/VZW_profile1.xml
-vendor/etc/cne/wqeclient/VZW/VZW_profile2.xml
-vendor/etc/cne/wqeclient/VZW/VZW_profile3.xml
-vendor/etc/cne/wqeclient/VZW/VZW_profile4.xml
-vendor/etc/cne/wqeclient/VZW/VZW_profile5.xml
-vendor/etc/cne/wqeclient/VZW/VZW_profile6.xml
+vendor/etc/cne/mwqem.conf|c51d3893b86ab89fae218f3a92c4f9c18ea401a8
+vendor/etc/cne/profileMwqem.xml|947917691684584b7e2ddf3588cd6f8e99f3804f
+vendor/etc/cne/wqeclient/ATT/ATT_profile1.xml|578f3f8f56059bfdbef926bcc68d01c15e06951f
+vendor/etc/cne/wqeclient/ATT/ATT_profile2.xml|1fb42c672a12b6660bdce3ea94e0c43719dd9de8
+vendor/etc/cne/wqeclient/ATT/ATT_profile3.xml|f88e13f1dd7b82388c90358f71813026370c9ed8
+vendor/etc/cne/wqeclient/ATT/ATT_profile4.xml|fb08e04f57797c5684bf734f7ce4bb4968859b18
+vendor/etc/cne/wqeclient/ATT/ATT_profile5.xml|eb726ad1a42b9b78b9ee3b821fc108611bc9eeac
+vendor/etc/cne/wqeclient/ATT/ATT_profile6.xml|be97b46b0d07ee2f6ebcc677d8099ed2140d5d85
+vendor/etc/cne/wqeclient/ROW/ROW_profile1.xml|e7ca213d0998cb3a6a603ad3eca7bda69830ff55
+vendor/etc/cne/wqeclient/ROW/ROW_profile15.xml|0130dfd8326ee710bf4e15718ede87c49a85b763
+vendor/etc/cne/wqeclient/ROW/ROW_profile16.xml|e05b935d7ccf48d306b71c719b2e4df83187d9c0
+vendor/etc/cne/wqeclient/ROW/ROW_profile17.xml|f1b33204799268eda78dd8314f26abf2e37431e2
+vendor/etc/cne/wqeclient/ROW/ROW_profile18.xml|19db16f62dabb806a62f192858a9d52b5bc2a064
+vendor/etc/cne/wqeclient/ROW/ROW_profile19.xml|1fcc57b1fa4dbbc7d250e8dd92acf1527d447eb3
+vendor/etc/cne/wqeclient/ROW/ROW_profile2.xml|169a5209000e357a1a3183e8e5bfdf6fd07c2787
+vendor/etc/cne/wqeclient/ROW/ROW_profile20.xml|7be0614cf0116c39b736c58fe5eca36838aeb3db
+vendor/etc/cne/wqeclient/ROW/ROW_profile21.xml|cc62517e6c37e12ee1ebebbb27f9c22878749be3
+vendor/etc/cne/wqeclient/ROW/ROW_profile3.xml|4be4060e8ac2d9fcea490feec7938cadcff46e1f
+vendor/etc/cne/wqeclient/ROW/ROW_profile32.xml|b87542b9284efe4c2bd0ae868bb9a765c2c3dbc5
+vendor/etc/cne/wqeclient/ROW/ROW_profile4.xml|f88e13f1dd7b82388c90358f71813026370c9ed8
+vendor/etc/cne/wqeclient/ROW/ROW_profile5.xml|96101f6b01436a02572c67a469ff67ccfb738874
+vendor/etc/cne/wqeclient/ROW/ROW_profile6.xml|cef14ff8a160c7ad719b85d024a4b3301c3638d0
+vendor/etc/cne/wqeclient/ROW/ROW_profile7.xml|8d6773a4c418d0dcc4dc9096017d2681c7a1defe
+vendor/etc/cne/wqeclient/VZW/VZW_profile1.xml|c89d3c062790b442cbe941cafc641a4e322f2d59
+vendor/etc/cne/wqeclient/VZW/VZW_profile2.xml|ba14a9df975cf872ed0cbe28bee8fac63cd848d4
+vendor/etc/cne/wqeclient/VZW/VZW_profile3.xml|9b123d81c9b8991499cda33b0706810e0c8fb974
+vendor/etc/cne/wqeclient/VZW/VZW_profile4.xml|ff91feb5060a6df07e3e4d9bc99ae58bccad7649
+vendor/etc/cne/wqeclient/VZW/VZW_profile5.xml|f76c894f3c6d5b6ed35113a088dc3174c900501b
+vendor/etc/cne/wqeclient/VZW/VZW_profile6.xml|14d136e7fcc682311757d3edc0b9d3eaeba11815
 
 # Data Path Manager - from FP3
--vendor/bin/dpmQmiMgr;DISABLE_DEPS
-vendor/etc/init/dpmQmiMgr.rc
--vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/libdpmqmihal.so;DISABLE_DEPS
+-vendor/bin/dpmQmiMgr;DISABLE_DEPS|61a421804559b0e461439c19088acc01b871982a
+vendor/etc/init/dpmQmiMgr.rc|1538743661a5c48c15cd105beaad20f72953885a
+-vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|d9f1aa7f93b928f42499d613d20ccbc60f279097
+-vendor/lib64/libdpmqmihal.so;DISABLE_DEPS|41eb89e66ba065c43a5eb79cd3c72cef0ee167aa
 
 # DRM
 -vendor/bin/qseecomd;DISABLE_DEPS
@@ -160,70 +146,69 @@ vendor/etc/init/dpmQmiMgr.rc
 -vendor/lib64/libssd.so;DISABLE_DEPS
 
 # Firmware (Camera)
-vendor/firmware/cpp_firmware_v1_10_0.fw
-vendor/firmware/cpp_firmware_v1_12_0.fw
-vendor/firmware/cpp_firmware_v1_12_1.fw
-vendor/firmware/cpp_firmware_v1_1_1.fw
-vendor/firmware/cpp_firmware_v1_1_6.fw
 vendor/firmware/cpp_firmware_v1_2_0.fw
 vendor/firmware/cpp_firmware_v1_4_0.fw
 vendor/firmware/cpp_firmware_v1_5_0.fw
-vendor/firmware/cpp_firmware_v1_5_1.fw
-vendor/firmware/cpp_firmware_v1_5_2.fw
-vendor/firmware/cpp_firmware_v1_6_0.fw
+vendor/firmware/cpp_firmware_v1_10_0.fw
 vendor/firmware/cpp_firmware_v1_8_0.fw
+vendor/firmware/cpp_firmware_v1_1_6.fw
+vendor/firmware/cpp_firmware_v1_5_1.fw
+vendor/firmware/cpp_firmware_v1_6_0.fw
+vendor/firmware/cpp_firmware_v1_1_1.fw
+vendor/firmware/cpp_firmware_v1_5_2.fw
+vendor/firmware/cpp_firmware_v1_12_0.fw
 
 # GNSS - from FP3
--vendor/bin/loc_launcher;DISABLE_DEPS
--vendor/bin/lowi-server;DISABLE_DEPS
--vendor/bin/mlid;DISABLE_DEPS
--vendor/bin/xtra-daemon;DISABLE_DEPS
--vendor/bin/xtwifi-client;DISABLE_DEPS
--vendor/bin/xtwifi-inet-agent;DISABLE_DEPS
-vendor/etc/cacert_location.pem
-vendor/etc/xtra_root_cert.pem
--vendor/lib64/libasn1cper.so;DISABLE_DEPS
--vendor/lib64/libasn1crt.so;DISABLE_DEPS
--vendor/lib64/libasn1crtx.so;DISABLE_DEPS
--vendor/lib64/libcdfw_remote_api.so;DISABLE_DEPS
--vendor/lib64/libgdtap.so;DISABLE_DEPS
--vendor/lib64/liblowi_client.so;DISABLE_DEPS
--vendor/lib64/libminksocket.so;DISABLE_DEPS
--vendor/lib64/libxtwifi_server_protocol.so;DISABLE_DEPS
--vendor/lib64/libxtwifi_server_protocol_uri_v3.so;DISABLE_DEPS
+-vendor/bin/loc_launcher;DISABLE_DEPS|923d85bd727fb809b43fa86adbf739dd2b55285c
+-vendor/bin/lowi-server;DISABLE_DEPS|5d18cc8854549c366f63cdce29178eb48c9b24b0
+-vendor/bin/mlid;DISABLE_DEPS|46ddb37a149cf09bff592437a41ff30e849c234e
+-vendor/bin/xtra-daemon;DISABLE_DEPS|0d15669c226784e4033ddee6cf396c39ff3d2bdf
+-vendor/bin/xtwifi-client;DISABLE_DEPS|7e5cb0670b20c12fbc5cbf4fb642efdd72e92f46
+-vendor/bin/xtwifi-inet-agent;DISABLE_DEPS|73eb9393ba634d805055eea3fbea64785063be4b
+vendor/etc/cacert_location.pem|0789bf799c7e45d352a83e2f79ddb0cea86db85b
+vendor/etc/xtra_root_cert.pem|f55a31ec4d9cf8ce2724acadecf00c779f8767db
+-vendor/lib64/libasn1cper.so;DISABLE_DEPS|74d2219f2f41e3f302db9bbf89f9c798d6af90f2
+-vendor/lib64/libasn1crt.so;DISABLE_DEPS|6780d64f14411f0bb1e7cc4568651bfd7ea3badf
+-vendor/lib64/libasn1crtx.so;DISABLE_DEPS|684ad8097d744ae53c9632a053130dd4f1d69eb4
+-vendor/lib64/libcdfw_remote_api.so;DISABLE_DEPS|558636f4fa4c17f29cb644c8c6e07766b7240005
+-vendor/lib64/libgdtap.so;DISABLE_DEPS|b46b7f6caaf2c2d4f43ed263bcdff3edfdc9f0f1
+-vendor/lib64/liblowi_client.so;DISABLE_DEPS|f6f99b941b4e63799576ab0cebd237e917807881
+-vendor/lib64/libminksocket.so;DISABLE_DEPS|103f45603bef0d1fbf52ccdf8458dd31cabe3945
+-vendor/lib64/libxtwifi_server_protocol.so;DISABLE_DEPS|c5b777d2f47976354951c9f2d8ee6fa5e82fe225
+-vendor/lib64/libxtwifi_server_protocol_uri_v3.so;DISABLE_DEPS|ae3a3bdcda27327409c5f93ffd47e5726b404b94
 
 # GNSS (configs) - from FP3
-vendor/etc/apdr.conf
-vendor/etc/izat.conf
-vendor/etc/lowi.conf
-vendor/etc/sap.conf
-vendor/etc/xtwifi.conf
+vendor/etc/apdr.conf|52c9b4265e55c87ddf07c9b60817b3c09420712a
+vendor/etc/izat.conf|2ac768473abee2bf6af0bbc59233d30562e9fb22
+vendor/etc/lowi.conf|2045e83483849a124e5fef052b59190f1b784df0
+vendor/etc/sap.conf|b5ea86d9d9ee36dc13194474d343dae36f6fa032
+vendor/etc/xtwifi.conf|ac2189707c0016c31846ccec73e8857d7f566605
 
 # GNSS (HIDL) - from FP3
--vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml
--vendor/lib64/libloc_socket.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.gnss@1.0.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.gnss@1.1.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.gnss@1.2.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.gnss@2.0.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.gnss@2.1.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.gnss@3.0.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.gnss@4.0-service.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.gnss@4.0.so;DISABLE_DEPS
+-vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml|6514b13f55abc0acc28e004c35ff93fb972d61a9
+-vendor/lib64/libloc_socket.so;DISABLE_DEPS|3aed3ebfa35ab1ed8a1ce6b63391000878e59372
+-vendor/lib64/vendor.qti.gnss@1.0.so;DISABLE_DEPS|7b9184263c7494c91f5811f7de91eef365034cf6
+-vendor/lib64/vendor.qti.gnss@1.1.so;DISABLE_DEPS|4aff58f45ccd00aacce8480d8892a5941bf04a0f
+-vendor/lib64/vendor.qti.gnss@1.2.so;DISABLE_DEPS|7561202e43cddc8419465e6d33a4756111e6ce5c
+-vendor/lib64/vendor.qti.gnss@2.0.so;DISABLE_DEPS|2e425157e11738a9ae0c951f7e17f689f6afaa55
+-vendor/lib64/vendor.qti.gnss@2.1.so;DISABLE_DEPS|148c38d7bb7f604637ff38d25aed75f412ebea3e
+-vendor/lib64/vendor.qti.gnss@3.0.so;DISABLE_DEPS|511a8354bb199b1b4d0d264762bdc078fd9f3e6b
+-vendor/lib64/vendor.qti.gnss@4.0-service.so;DISABLE_DEPS|218e7e15a1d3b58bb8adb695e7b37036977c5573
+-vendor/lib64/vendor.qti.gnss@4.0.so;DISABLE_DEPS|7ba7853e772806f98fe60243542498a146dfe248
 
 # GNSS (IMPL) - from FP3
--vendor/lib64/hw/vendor.qti.gnss@4.0-impl.so;DISABLE_DEPS
--vendor/lib64/libcdfw.so;DISABLE_DEPS
--vendor/lib64/libdataitems.so;DISABLE_DEPS
--vendor/lib64/libizat_client_api.so;DISABLE_DEPS
--vendor/lib64/libizat_core.so;DISABLE_DEPS
--vendor/lib64/liblbs_core.so;DISABLE_DEPS
--vendor/lib64/libloc_api_v02.so;DISABLE_DEPS
--vendor/lib64/liblocationservice.so;DISABLE_DEPS
--vendor/lib64/liblocationservice_glue.so;DISABLE_DEPS
--vendor/lib64/libpdmapper.so;DISABLE_DEPS
--vendor/lib64/libsynergy_loc_api.so;DISABLE_DEPS
--vendor/lib64/libxtadapter.so;DISABLE_DEPS
+-vendor/lib64/hw/vendor.qti.gnss@4.0-impl.so;DISABLE_DEPS|3faeada4db08a081852d06bacda693ab2fb4678b
+-vendor/lib64/libcdfw.so;DISABLE_DEPS|543b8282f4b6719113f04e14dd908137521e2bb5
+-vendor/lib64/libdataitems.so;DISABLE_DEPS|392953954f2fb59ce4a2e8acc11c4188e418fee2
+-vendor/lib64/libizat_client_api.so;DISABLE_DEPS|331cc111b7ca79f110147fb49e935fcd745b02e8
+-vendor/lib64/libizat_core.so;DISABLE_DEPS|dc3e14f4203d1146ea5fed09b47a2cbb70f12bdc
+-vendor/lib64/liblbs_core.so;DISABLE_DEPS|447d28e3b08355282b53c01b2431cdda3b480c40
+-vendor/lib64/libloc_api_v02.so;DISABLE_DEPS|b58a91ab6775bbffad7154fe5c3445d310a951ac
+-vendor/lib64/liblocationservice.so;DISABLE_DEPS|caeb98959d02a3bd8fc90ede67139a3aafde90b3
+-vendor/lib64/liblocationservice_glue.so;DISABLE_DEPS|86bad6c355db3d89e24569bad4b7e2c04b89d778
+-vendor/lib64/libpdmapper.so;DISABLE_DEPS|859a6acc25bf64a0503f333e960bf99d322f9f7e
+-vendor/lib64/libsynergy_loc_api.so;DISABLE_DEPS|0599d8cc9e448eba0588e1ca45bd30e1dd67f405
+-vendor/lib64/libxtadapter.so;DISABLE_DEPS|495af82c252ccca8257c5281ba699da214fd1539
 
 # Graphics
 -vendor/lib/egl/eglSubDriverAndroid.so;DISABLE_DEPS
@@ -232,7 +217,6 @@ vendor/etc/xtwifi.conf
 -vendor/lib/egl/libGLESv2_adreno.so;DISABLE_DEPS;SYMLINK=vendor/lib/libGLESv2_adreno.so
 -vendor/lib/egl/libq3dtools_adreno.so;DISABLE_DEPS;SYMLINK=vendor/lib/libq3dtools_adreno.so
 -vendor/lib/egl/libq3dtools_esx.so;DISABLE_DEPS
--vendor/lib/hw/vulkan.adreno.so:vendor/lib/vulkan.adreno.so;DISABLE_DEPS
 -vendor/lib/libC2D2.so;DISABLE_DEPS
 -vendor/lib/libCB.so;DISABLE_DEPS
 -vendor/lib/libOpenCL.so;DISABLE_DEPS
@@ -248,7 +232,6 @@ vendor/etc/xtwifi.conf
 -vendor/lib64/egl/libGLESv2_adreno.so;DISABLE_DEPS;SYMLINK=vendor/lib64/libGLESv2_adreno.so
 -vendor/lib64/egl/libq3dtools_adreno.so;DISABLE_DEPS;SYMLINK=vendor/lib64/libq3dtools_adreno.so
 -vendor/lib64/egl/libq3dtools_esx.so;DISABLE_DEPS
--vendor/lib64/hw/vulkan.adreno.so:vendor/lib64/vulkan.adreno.so;DISABLE_DEPS
 -vendor/lib64/libC2D2.so;DISABLE_DEPS
 -vendor/lib64/libCB.so;DISABLE_DEPS
 -vendor/lib64/libOpenCL.so;DISABLE_DEPS
@@ -280,51 +263,51 @@ vendor/etc/init/vendor.display.color@1.0-service.rc
 -vendor/lib64/libtinyxml2_1.so;DISABLE_DEPS
 
 # IMS - from FP3
--vendor/bin/imsdatadaemon;DISABLE_DEPS
--vendor/bin/imsqmidaemon;DISABLE_DEPS
-vendor/etc/init/imsdatadaemon.rc
-vendor/etc/init/imsqmidaemon.rc
+-vendor/bin/imsdatadaemon;DISABLE_DEPS|3f044f84eb4049f1ce8a26af6a6026c1776d22dd
+-vendor/bin/imsqmidaemon;DISABLE_DEPS|756dcc2d6c7fa26916bc28dedf0c513b1d5e5bfe
+vendor/etc/init/imsdatadaemon.rc|29face37c174aebcd1358f7d7ad0bd4baf83063b
+vendor/etc/init/imsqmidaemon.rc|dda16d842b7c65296e97bc9921b723a43b152ba3
 
 # IMS - imsrcsd - from FP3
--vendor/bin/imsrcsd;DISABLE_DEPS
-vendor/etc/init/imsrcsd.rc
--vendor/lib64/com.qualcomm.qti.imscmservice@2.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/com.qualcomm.qti.imscmservice@2.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/com.qualcomm.qti.imscmservice@2.2.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/com.qualcomm.qti.uceservice@2.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/com.qualcomm.qti.uceservice@2.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/com.qualcomm.qti.uceservice@2.2.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/com.qualcomm.qti.uceservice@2.3.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/lib-imsSDP.so;DISABLE_DEPS
--vendor/lib64/lib-imscmservice.so;DISABLE_DEPS
--vendor/lib64/lib-imsdpl.so;DISABLE_DEPS
--vendor/lib64/lib-imsqimf.so;DISABLE_DEPS
--vendor/lib64/lib-imsrcs-v2.so;DISABLE_DEPS
--vendor/lib64/lib-imsrcsbaseimpl.so;DISABLE_DEPS
--vendor/lib64/lib-imsxml.so;DISABLE_DEPS
--vendor/lib64/lib-rcsconfig.so;DISABLE_DEPS
--vendor/lib64/lib-rtpcommon.so;DISABLE_DEPS
--vendor/lib64/lib-siputility.so;DISABLE_DEPS
--vendor/lib64/lib-uceservice.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.ims.callcapability@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.ims.callinfo@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.ims.factory@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.ims.factory@1.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.ims.rcsconfig@1.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.ims.rcsconfig@2.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.ims.rcsconfig@2.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
+-vendor/bin/imsrcsd;DISABLE_DEPS|bf29aac14856f29268c01599e5f6c7c6ae520685
+vendor/etc/init/imsrcsd.rc|2dc42ff6e4b6dd389bd3bc9a7af30dec2f1a45df
+-vendor/lib64/com.qualcomm.qti.imscmservice@2.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|fa5fe282dc9a6953ba4586415cdf161ed5a040cd
+-vendor/lib64/com.qualcomm.qti.imscmservice@2.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|a541d0198e914ae6afd2cc051de55894d23bb8b0
+-vendor/lib64/com.qualcomm.qti.imscmservice@2.2.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|3c760d54508c404a802294da677db6077fe10170
+-vendor/lib64/com.qualcomm.qti.uceservice@2.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|333c782d6cc5961e44a4d128d838f543acec65cb
+-vendor/lib64/com.qualcomm.qti.uceservice@2.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|d8ae76c62bf03be478f059911f3cd06a2bd987df
+-vendor/lib64/com.qualcomm.qti.uceservice@2.2.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|bd8b1c93c7feb6ce62d2cb8f41d203e0537b555d
+-vendor/lib64/com.qualcomm.qti.uceservice@2.3.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|597dbdf8bb12602c141da99b50ab1d5d838adc7e
+-vendor/lib64/lib-imsSDP.so;DISABLE_DEPS|4d19d270ea4ecde57d3fe2c5435379558ca94a52
+-vendor/lib64/lib-imscmservice.so;DISABLE_DEPS|1256a36db63ed10e3f7f6c659d5086bf1ed8752f
+-vendor/lib64/lib-imsdpl.so;DISABLE_DEPS|18c2071b74fc8dfefeabf0c2e075720ebaa81ab2
+-vendor/lib64/lib-imsqimf.so;DISABLE_DEPS|d0813dc6a1360c31bc2736b6d59d2fa3a0c614f8
+-vendor/lib64/lib-imsrcs-v2.so;DISABLE_DEPS|3937e675ce460f3950e04aef67b1d17e7fd227a5
+-vendor/lib64/lib-imsrcsbaseimpl.so;DISABLE_DEPS|8b765d37ac42cb813cf28995fb1359f42f26912f
+-vendor/lib64/lib-imsxml.so;DISABLE_DEPS|25d01eaf4d9a1a0d5002e8ad27500d19b9adbbe5
+-vendor/lib64/lib-rcsconfig.so;DISABLE_DEPS|0b92e7427537686f9e63b9b68e06eb15ffaf48a5
+-vendor/lib64/lib-rtpcommon.so;DISABLE_DEPS|8c1c8d87c1686bf972035460c588cc75b26e82c6
+-vendor/lib64/lib-siputility.so;DISABLE_DEPS|d478b100a73911120e3cb92474aa0f143e5345a9
+-vendor/lib64/lib-uceservice.so;DISABLE_DEPS|c7af1b597aa7d62d4a710ac8b012207e2a749bfc
+-vendor/lib64/vendor.qti.ims.callcapability@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|4068a3900aaa0045da986a9f0991cc66afdd48f5
+-vendor/lib64/vendor.qti.ims.callinfo@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|418f0bf4b3af5d15dd44efe1c5606772b1770e09
+-vendor/lib64/vendor.qti.ims.factory@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|21c91c2aea181c6bb0f66790fd82944dcf117a6d
+-vendor/lib64/vendor.qti.ims.factory@1.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|b4c803a2d5f3bc7a1de93957d163405168308db4
+-vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|515630e936f4a40655995b58daf72b3cb374be8f
+-vendor/lib64/vendor.qti.ims.rcsconfig@1.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|b2faf304adadcdd84b0dafeda6d4d56821517727
+-vendor/lib64/vendor.qti.ims.rcsconfig@2.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|aa98e9afc4cac9fa5be51bbba359a74973f9cf27
+-vendor/lib64/vendor.qti.ims.rcsconfig@2.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|62cd64dbb25d082cfdc742fb03931ba0f9abe434
 
 # IMS - ims_rtp_daemon - from FP3
--vendor/bin/ims_rtp_daemon;DISABLE_DEPS
-vendor/etc/init/ims_rtp_daemon_legacy.rc
-vendor/etc/seccomp_policy/imsrtp.policy
--vendor/lib64/lib-imsvtcore.so;DISABLE_DEPS
--vendor/lib64/lib-rtpcore.so;DISABLE_DEPS
--vendor/lib64/lib-rtpsl.so;DISABLE_DEPS
--vendor/lib64/librcc.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.imsrtpservice@3.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
+-vendor/bin/ims_rtp_daemon;DISABLE_DEPS|32a3ce381b0f85f53a2e9afd7215b3585afef0d6
+vendor/etc/init/ims_rtp_daemon_legacy.rc|104b2a879db4d3dd44e74a3d7f6e69f6972c9129
+vendor/etc/seccomp_policy/imsrtp.policy|7ea8b4012da7bde98fc91bd882185b32784793cc
+-vendor/lib64/lib-imsvtcore.so;DISABLE_DEPS|c3354efe3909f2971a0a4f847c4dddca02bdb81b
+-vendor/lib64/lib-rtpcore.so;DISABLE_DEPS|94e6989c19b2f7813fa8996822430a6813cdaf1d
+-vendor/lib64/lib-rtpsl.so;DISABLE_DEPS|44c91df047d3ae8dfc8b747e7fdd1c48d4e48dc0
+-vendor/lib64/librcc.so;DISABLE_DEPS|e35056f3b5c0790d65ded14ed48dd1ed1296ecc7
+-vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so;DISABLE_DEPS|fa120eaa7807ff43f3974a8e0146a8c00c78f623
+-vendor/lib64/vendor.qti.imsrtpservice@3.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|460e589128fce0b0e83bb3c75aa32f7e1a9494fd
 
 # IRQ Balancer
 -vendor/bin/msm_irqbalance;DISABLE_DEPS
@@ -337,7 +320,7 @@ vendor/etc/seccomp_policy/mediacodec.policy
 -vendor/lib/libOmxSwVencMpeg4.so;DISABLE_DEPS
 -vendor/lib/libOmxVideoDSMode.so;DISABLE_DEPS
 -vendor/lib/libOmxVpp.so;DISABLE_DEPS
--vendor/lib/libmmosal.so;DISABLE_DEPS
+-vendor/lib/libmmosal_proprietary.so;DISABLE_DEPS
 -vendor/lib/libswvdec.so;DISABLE_DEPS
 -vendor/lib/libvpplibrary.so;DISABLE_DEPS
 -vendor/lib/libwfdcommonutils_proprietary.so;DISABLE_DEPS
@@ -347,21 +330,17 @@ vendor/etc/seccomp_policy/mediacodec.policy
 -vendor/lib64/libOmxSwVdec.so;DISABLE_DEPS
 -vendor/lib64/libOmxSwVencMpeg4.so;DISABLE_DEPS
 -vendor/lib64/libOmxVpp.so;DISABLE_DEPS
--vendor/lib64/libmmosal.so;DISABLE_DEPS
+-vendor/lib64/libmmosal_proprietary.so;DISABLE_DEPS
 -vendor/lib64/libswvdec.so;DISABLE_DEPS
 -vendor/lib64/libvpplibrary.so;DISABLE_DEPS
 
 # Perf
--vendor/bin/hw/vendor.qti.hardware.perf@2.2-service;DISABLE_DEPS
-vendor/etc/init/vendor.qti.hardware.perf@2.2-service.rc
+-vendor/bin/hw/vendor.qti.hardware.perf@1.0-service;DISABLE_DEPS
+vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc
 -vendor/lib/libqti-perfd-client.so;DISABLE_DEPS
--vendor/lib64/libadaptlaunch.so;DISABLE_DEPS
 -vendor/lib64/liblearningmodule.so;DISABLE_DEPS
--vendor/lib64/libmeters-ns.so;DISABLE_DEPS
 -vendor/lib64/libmeters.so;DISABLE_DEPS
--vendor/lib64/libperfconfig.so;DISABLE_DEPS
 -vendor/lib64/libperfgluelayer.so;DISABLE_DEPS
--vendor/lib64/libperfioctl.so;DISABLE_DEPS
 -vendor/lib64/libqti-perfd-client.so;DISABLE_DEPS
 -vendor/lib64/libqti-perfd.so;DISABLE_DEPS
 -vendor/lib64/libqti-util.so;DISABLE_DEPS
@@ -372,14 +351,13 @@ vendor/etc/perf/commonresourceconfigs.xml
 vendor/etc/perf/perf-profile0.conf
 vendor/etc/perf/perf-profile1.conf
 vendor/etc/perf/perfboostsconfig.xml
-vendor/etc/perf/perfconfigstore.xml
 vendor/etc/perf/targetconfig.xml
 vendor/etc/perf/targetresourceconfigs.xml
 
 # Peripheral manager - from FP3
--vendor/bin/pm-proxy;DISABLE_DEPS
--vendor/bin/pm-service;DISABLE_DEPS
--vendor/lib64/libperipheral_client.so;DISABLE_DEPS
+-vendor/bin/pm-proxy;DISABLE_DEPS|910437c11108aa66e803bbc760ce3998d141a6b4
+-vendor/bin/pm-service;DISABLE_DEPS|98827a6bf6693033a7c767e3fb4f097b9075a0ef
+-vendor/lib64/libperipheral_client.so;DISABLE_DEPS|9bfd41e276e16b8f7c6808f3d87531fc5be4cdd5
 
 # Power-off Alarm
 -vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service;DISABLE_DEPS
@@ -388,148 +366,143 @@ vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc
 -vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so;DISABLE_DEPS
 -vendor/lib64/vendor.qti.hardware.alarm@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
 
-# QDMA
--vendor/lib64/libqcc_file_agent.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so;DISABLE_DEPS
-
 # QMI - from FP3
--vendor/lib/libdiag.so;DISABLE_DEPS
--vendor/lib/libqmi_cci.so;DISABLE_DEPS
--vendor/lib/libqmi_common_so.so;DISABLE_DEPS
--vendor/lib/libqmi_encdec.so;DISABLE_DEPS
--vendor/lib64/libdiag.so;DISABLE_DEPS
--vendor/lib64/libdsutils.so;DISABLE_DEPS
--vendor/lib64/libidl.so;DISABLE_DEPS
--vendor/lib64/libmdmdetect.so;DISABLE_DEPS
--vendor/lib64/libqdi.so;DISABLE_DEPS
--vendor/lib64/libqmi.so;DISABLE_DEPS
--vendor/lib64/libqmi_cci.so;DISABLE_DEPS
--vendor/lib64/libqmi_client_helper.so;DISABLE_DEPS
--vendor/lib64/libqmi_client_qmux.so;DISABLE_DEPS
--vendor/lib64/libqmi_common_so.so;DISABLE_DEPS
--vendor/lib64/libqmi_csi.so;DISABLE_DEPS
--vendor/lib64/libqmi_encdec.so;DISABLE_DEPS
--vendor/lib64/libqmiservices.so;DISABLE_DEPS
--vendor/lib64/libxml.so;DISABLE_DEPS
+-vendor/lib/libdiag.so;DISABLE_DEPS|0a9a6aa74b1728bfb9c6b3ccd7cf0a5bdbc29434
+-vendor/lib/libqmi_cci.so;DISABLE_DEPS|6b8aae60c097ef8ae18f2497ed803bfdbab4e252
+-vendor/lib/libqmi_common_so.so;DISABLE_DEPS|487dab3792cd55351cdaf0a0d0e5fb974860f992
+-vendor/lib/libqmi_encdec.so;DISABLE_DEPS|e45cfc088efc2141047d304c9577f466bdb5dfbc
+-vendor/lib64/libdiag.so;DISABLE_DEPS|174ff3f940288d2d1503230465dfe917ab9d155b
+-vendor/lib64/libdsutils.so;DISABLE_DEPS|0b466344eb6628feb1b5aba00d1ef3f680e5aa9a
+-vendor/lib64/libidl.so;DISABLE_DEPS|79ebe1a5b1fb81d9cdc972c71cec2667cdcf6599
+-vendor/lib64/libmdmdetect.so;DISABLE_DEPS|1acafe6bd37e770d97649b703d2b695d790d2191
+-vendor/lib64/libqdi.so;DISABLE_DEPS|c9e0b315edfb6a8f6e6afb5370e9dff5e934c78c
+-vendor/lib64/libqmi.so;DISABLE_DEPS|e29aa40904a3b1cf73dd739861154acbbe73ecb3
+-vendor/lib64/libqmi_cci.so;DISABLE_DEPS|821c9ed22945e020e8f855267d53be5f2b619740
+-vendor/lib64/libqmi_client_helper.so;DISABLE_DEPS|b53191b0ff5bd9abadd3751ef2896ef13e9cd8d2
+-vendor/lib64/libqmi_client_qmux.so;DISABLE_DEPS|600fe6c17ae7a5ca01d02bcbbbf7fb2c0510bd41
+-vendor/lib64/libqmi_common_so.so;DISABLE_DEPS|4a162382e0d611dacbb803371e78eb56786078b9
+-vendor/lib64/libqmi_csi.so;DISABLE_DEPS|6d22ed6353c791ea1804c195b92b02dc28a679c3
+-vendor/lib64/libqmi_encdec.so;DISABLE_DEPS|8a365cf7472c187c02fa0649e09fee529ded7563
+-vendor/lib64/libqmiservices.so;DISABLE_DEPS|2e259463cbeb329caec303b642ab4068c8d10be5
+-vendor/lib64/libxml.so;DISABLE_DEPS|f9b20632e9fd324810caf865faea93e4ff505d91
 
 # QMI (IRSC) - from FP3
--vendor/bin/irsc_util;DISABLE_DEPS
+-vendor/bin/irsc_util;DISABLE_DEPS|e590882aefe9da28c1d57e9bf46962198f1dabcd
 
 # QMI (QRTR) - from FP3
--vendor/bin/qrtr-ns;DISABLE_DEPS
--vendor/lib64/libqrtr.so;DISABLE_DEPS
+-vendor/bin/qrtr-ns;DISABLE_DEPS|f34e89ba7d2ed5c0fe623a681bfc9b6b742cb3c1
+-vendor/lib64/libqrtr.so;DISABLE_DEPS|2e4d6aa5344159c36ccd34cc341ee29d6f0424a1
 
 # RIL (ATFWD) - from FP3
--vendor/bin/ATFWD-daemon;DISABLE_DEPS
-vendor/etc/seccomp_policy/atfwd@2.0.policy
--vendor/lib64/vendor.qti.hardware.radio.atcmdfwd@1.0.so;DISABLE_DEPS
+-vendor/bin/ATFWD-daemon;DISABLE_DEPS|8d2b9db2e2f3cfa59f7aede4ab912d20066f77ea
+vendor/etc/seccomp_policy/atfwd@2.0.policy|da0ecc6378a5df652f412c4aac8423e50f27a53e
+-vendor/lib64/vendor.qti.hardware.radio.atcmdfwd@1.0.so;DISABLE_DEPS|1ac7751ba5d449d8b992af21df01119536d66003
 
 # RIL (Data) - from FP3
--vendor/bin/port-bridge;DISABLE_DEPS
--vendor/bin/qti;DISABLE_DEPS
-vendor/etc/data/dsi_config.xml
-vendor/etc/init/dataqti.rc
-vendor/etc/init/port-bridge.rc
--vendor/lib64/libdsi_netctrl.so;DISABLE_DEPS
+-vendor/bin/port-bridge;DISABLE_DEPS|aeff25bb226f44e45ed062e0525651804f261c21
+-vendor/bin/qti;DISABLE_DEPS|b77e71520fa5439dc0bf828a8b9ad4f52ce87d49
+vendor/etc/data/dsi_config.xml|27a9616809d2e2355640d5e7cdb7268eba9f6a0d
+vendor/etc/init/dataqti.rc|6abfd1a850d782adbbb6f42c9d8ca870036b2ad1
+vendor/etc/init/port-bridge.rc|e52d61a0de5e8a3b21bfbfca929e862422645377
+-vendor/lib64/libdsi_netctrl.so;DISABLE_DEPS|b622c0ff82676d5e02fb92445c6a030742f0c6c4
 
 # RIL (Data) - ADPL - from FP3
--vendor/bin/adpl;DISABLE_DEPS
-vendor/etc/init/dataadpl.rc
--vendor/lib64/libqcmaputils.so;DISABLE_DEPS
+-vendor/bin/adpl;DISABLE_DEPS|c6e56a34827222135596c7266343187e055bda06
+vendor/etc/init/dataadpl.rc|cd4907d9bfd438fe5f5c86f5d6cec590ac0bac2a
+-vendor/lib64/libqcmaputils.so;DISABLE_DEPS|62530da64451f1386630084dc4bd08dd1d7c266e
 
 # RIL (Data) - Netmgrd - from FP3
--vendor/bin/netmgrd;DISABLE_DEPS
-vendor/etc/data/netmgr_config.xml
-vendor/etc/init/netmgrd.rc
--vendor/lib64/libconfigdb.so;DISABLE_DEPS
--vendor/lib64/libnetmgr.so;DISABLE_DEPS
--vendor/lib64/libnetmgr_common.so;DISABLE_DEPS
--vendor/lib64/libnetmgr_nr_fusion.so;DISABLE_DEPS
--vendor/lib64/libnetmgr_rmnet_ext.so;DISABLE_DEPS
--vendor/lib64/libnlnetmgr.so;DISABLE_DEPS
+-vendor/bin/netmgrd;DISABLE_DEPS|f3eafb4d5e31e3f90544f380667625dfdc22aa37
+vendor/etc/data/netmgr_config.xml|b87b057d87139c7ac866dc5f75c498de1e8ab361
+vendor/etc/init/netmgrd.rc|5c592bd2cf775462e147d3def97e99abbac4631e
+-vendor/lib64/libconfigdb.so;DISABLE_DEPS|6634f23eebd1156c9053b5a77163ee7a058a1916
+-vendor/lib64/libnetmgr.so;DISABLE_DEPS|8d0a3e85a1d535efa22634621c4e4796aea1d642
+-vendor/lib64/libnetmgr_common.so;DISABLE_DEPS|a414ca9603bddd34f1b00d648094782095f98e97
+-vendor/lib64/libnetmgr_nr_fusion.so;DISABLE_DEPS|e40531a6e11af9d4905179ef6174299da99041ca
+-vendor/lib64/libnetmgr_rmnet_ext.so;DISABLE_DEPS|4d3eff79502cffad09057faafffb449917031f96
+-vendor/lib64/libnlnetmgr.so;DISABLE_DEPS|8f6aba985f05c837868f7e1f32b6b2399de428f2
 
 # RIL (Database) - from FP3
-vendor/radio/qcril_database/qcril.db
-vendor/radio/qcril_database/upgrade/0_initial.sql
-vendor/radio/qcril_database/upgrade/10_version_update_ecc_table.sql
-vendor/radio/qcril_database/upgrade/1_version_intro.sql
-vendor/radio/qcril_database/upgrade/2_version_add_wps_config.sql
-vendor/radio/qcril_database/upgrade/3_version_update_wps_config.sql
-vendor/radio/qcril_database/upgrade/4_version_update_ecc_table.sql
-vendor/radio/qcril_database/upgrade/5_version_update_ecc_table.sql
-vendor/radio/qcril_database/upgrade/6_version_update_ecc_table.sql
-vendor/radio/qcril_database/upgrade/7_version_update_ecc_table.sql
-vendor/radio/qcril_database/upgrade/8_version_update_ecc_table.sql
-vendor/radio/qcril_database/upgrade/9_version_update_ecc_table.sql
+vendor/radio/qcril_database/qcril.db|f51df17ac3bf25a225e3ba15c830b1d0d2bf4e85
+vendor/radio/qcril_database/upgrade/0_initial.sql|e00b243261d8941802bdea9d4e659dc5e927c216
+vendor/radio/qcril_database/upgrade/10_version_update_ecc_table.sql|1ca05b047116cbc776f71d3bdba4952b18b04229
+vendor/radio/qcril_database/upgrade/1_version_intro.sql|67b96cb3e94737bfe271b2519b9eb5fae17373a2
+vendor/radio/qcril_database/upgrade/2_version_add_wps_config.sql|b4a825ba20fea3e2f20c7f02c8bd64596c24a75e
+vendor/radio/qcril_database/upgrade/3_version_update_wps_config.sql|0571aacaf9fc0868c48bba2f7542f5b4e68c9022
+vendor/radio/qcril_database/upgrade/4_version_update_ecc_table.sql|0734c6a2863edadc7a8422b8310d267c594d11a0
+vendor/radio/qcril_database/upgrade/5_version_update_ecc_table.sql|fcb2cba3bfd718ecdc8d3cfac3a0b2b2c7e8c506
+vendor/radio/qcril_database/upgrade/6_version_update_ecc_table.sql|0fdf4b6ccb48906b37885e060429f79c9fd6bdbf
+vendor/radio/qcril_database/upgrade/7_version_update_ecc_table.sql|9a76d5747da2876b87b214579c9d74ae92d218d7
+vendor/radio/qcril_database/upgrade/8_version_update_ecc_table.sql|a0603a5c46e8e67f78bdb42f2b246ecc6a37cecd
+vendor/radio/qcril_database/upgrade/9_version_update_ecc_table.sql|4701219a79190995eda651e5c45e11c9b111a478
 
 # RIL (RemoteFS) - from FP3
--vendor/bin/rmt_storage;DISABLE_DEPS
-vendor/etc/init/vendor.qti.rmt_storage.rc
+-vendor/bin/rmt_storage;DISABLE_DEPS|71e31a6b00bc140c0a7a7f9b999a6aa857983244
+vendor/etc/init/vendor.qti.rmt_storage.rc|bc212c6353c2ded44ae4d759605fbbe55aa4fa3f
 
 # RIL (TFTP) - from FP3
--vendor/bin/tftp_server;DISABLE_DEPS
-vendor/etc/init/vendor.qti.tftp.rc
+-vendor/bin/tftp_server;DISABLE_DEPS|36bc4fa70a1ee88e1920ba1051d81419d4a60d76
+vendor/etc/init/vendor.qti.tftp.rc|b27f188cbffba470a4510d50e46ff7c8446c22cb
 
 # RIL (QCRILD) - from FP3
--vendor/bin/hw/qcrild;DISABLE_DEPS
-vendor/etc/init/qcrild.rc
--vendor/lib64/liblqe.so;DISABLE_DEPS
--vendor/lib64/libqcrilFramework.so;DISABLE_DEPS
--vendor/lib64/libqcrildatactl.so;DISABLE_DEPS
--vendor/lib64/libqdp.so;DISABLE_DEPS
--vendor/lib64/libril-qc-hal-qmi.so;DISABLE_DEPS
--vendor/lib64/libril-qc-logger.so;DISABLE_DEPS
--vendor/lib64/librilqmiservices.so;DISABLE_DEPS
--vendor/lib64/libsystem_health_mon.so;DISABLE_DEPS
--vendor/lib64/qcrild_librilutils.so;DISABLE_DEPS
--vendor/lib64/qtibus.so;DISABLE_DEPS
--vendor/lib64/qtimutex.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.hardware.data.connection@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.data.connection@1.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.data.iwlan@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.am@1.0.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.hardware.radio.ims@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.ims@1.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.ims@1.2.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.ims@1.3.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.ims@1.4.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.ims@1.5.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.ims@1.6.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.ims@1.7.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.hardware.radio.internal.deviceinfo@1.0.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.hardware.radio.lpa@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.lpa@1.1.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.hardware.radio.qcrilhook@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.qtiradio@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.2.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.3.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.4.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.uim@1.0.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.hardware.radio.uim@1.1.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.hardware.radio.uim@1.2.so;DISABLE_DEPS
--vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.2.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
--vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor
+-vendor/bin/hw/qcrild;DISABLE_DEPS|9ebae4b7b4bc8fb31371f3926634206737d73bb2
+vendor/etc/init/qcrild.rc|17cf4934bf443cf6469d8b3ff622eeb0e4a0aac6
+-vendor/lib64/liblqe.so;DISABLE_DEPS|02191d7bfeca08ec8b89550a27bef02c3291609e
+-vendor/lib64/libqcrilFramework.so;DISABLE_DEPS|64386a08a3d8c85cd2117575e7d863a24a8b8850
+-vendor/lib64/libqcrildatactl.so;DISABLE_DEPS|b3dccb609cfdc64b7bc74d9d3204904d8972df4d
+-vendor/lib64/libqdp.so;DISABLE_DEPS|f83527aa6b6aa45c6495056dc830affbe889fb18
+-vendor/lib64/libril-qc-hal-qmi.so;DISABLE_DEPS|f679e715373bb60322aa397a074e8c02a5328665
+-vendor/lib64/libril-qc-logger.so;DISABLE_DEPS|7f80da37d120faffd72838b76d74102c7321e3a3
+-vendor/lib64/librilqmiservices.so;DISABLE_DEPS|e2714b4ca1792ea210899250414682c58e066f7d
+-vendor/lib64/libsystem_health_mon.so;DISABLE_DEPS|d40c48c91ea120583316efea358cb400a23c81cf
+-vendor/lib64/qcrild_librilutils.so;DISABLE_DEPS|0644fb4cfdd39557115ada179a76aab0aa0f1d89
+-vendor/lib64/qtibus.so;DISABLE_DEPS|0b387ecd1b898f3d3aee6c51783817767a6d1e70
+-vendor/lib64/qtimutex.so;DISABLE_DEPS|fc156f485519be1cd683f1af3ebb6194ce4ba2d5
+-vendor/lib64/vendor.qti.hardware.data.connection@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|b1680808bd26a89a586f9aca8839ca9389b6503a
+-vendor/lib64/vendor.qti.hardware.data.connection@1.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|b71ecdd47c46cae07fca43057695996e134e414b
+-vendor/lib64/vendor.qti.hardware.data.iwlan@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|463659c4b5050c1af1d100c83914fd710ca99710
+-vendor/lib64/vendor.qti.hardware.radio.am@1.0.so;DISABLE_DEPS|589394d273571d0a8dd0f87587000ce8e87e0fab
+-vendor/lib64/vendor.qti.hardware.radio.ims@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|d4197cee5ec9630ca729cfa456519162ca974ff2
+-vendor/lib64/vendor.qti.hardware.radio.ims@1.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|1859d8170c77e11e1c6eb02e16dac4d5c4af8762
+-vendor/lib64/vendor.qti.hardware.radio.ims@1.2.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|c72cc7f7cf2fcee66e2adbfaf0a872617440b0bb
+-vendor/lib64/vendor.qti.hardware.radio.ims@1.3.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|aca03d2a7218c2d35705bc7495ca40b07e8076de
+-vendor/lib64/vendor.qti.hardware.radio.ims@1.4.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|e81002ebed2443c3f66f94ab1e8f36e5a72464c1
+-vendor/lib64/vendor.qti.hardware.radio.ims@1.5.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|9591e93323e3d2165931e378985513640d7078d7
+-vendor/lib64/vendor.qti.hardware.radio.ims@1.6.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|54bc61927a3c677fe9291dfb9ee839ecc1842f49
+-vendor/lib64/vendor.qti.hardware.radio.ims@1.7.so;DISABLE_DEPS|f706488f9a46b3a0ef630a46d8e020bc5f4718a1
+-vendor/lib64/vendor.qti.hardware.radio.internal.deviceinfo@1.0.so;DISABLE_DEPS|536c1412bac13767e218b9e161050169b9cd0024
+-vendor/lib64/vendor.qti.hardware.radio.lpa@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|9bc34ee0a67e54573f86ffbf2a76ec5a9a47d363
+-vendor/lib64/vendor.qti.hardware.radio.lpa@1.1.so;DISABLE_DEPS|144c4b48c0149426854f841cebf2987f318e4960
+-vendor/lib64/vendor.qti.hardware.radio.qcrilhook@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|0a3dc08f47609b4607230fb22ef45187027aa917
+-vendor/lib64/vendor.qti.hardware.radio.qtiradio@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|ab7a01145917b4b26008ba17e0b061ae18e1c01b
+-vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|7537e63151967aea37a7e934a4923699f76f65d8
+-vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|c6172f69fe19904d48d7e7fb83040a4d8a0c17c9
+-vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.2.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|c4ace987f88aeac8f7c845a01475bfe56ebb791a
+-vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.3.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|6d86366c3aa94d0e45f2926125a4567bc9ba1d75
+-vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.4.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|0e3a201691b21dcf6066f30eb0b861d6ce849454
+-vendor/lib64/vendor.qti.hardware.radio.uim@1.0.so;DISABLE_DEPS|91ec4bccc679aa26d1a7737c236ea79941e78346
+-vendor/lib64/vendor.qti.hardware.radio.uim@1.1.so;DISABLE_DEPS|2e30b71b42e2c5c75772045d41b98fcdf54308f0
+-vendor/lib64/vendor.qti.hardware.radio.uim@1.2.so;DISABLE_DEPS|7c17513408775e1c8a730ecc174dec778182e15a
+-vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|3655bc35150b1f82cefea980faded1bdff20631a
+-vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.1.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|1bc9bf2264ec5e49d41662fbfbbb92c27c8c29bc
+-vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.2.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|c197b4dbca1cfc10e50f2032367cde01ded61758
+-vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so;DISABLE_DEPS;MODULE_SUFFIX=_vendor|5984e8c77db0cd9fa68e41b550b5a91286b0267e
 
 # Sensors
 vendor/etc/sensors/hals.conf
 
 # Subsystem Restart - from FP3
--vendor/bin/ssr_diag;DISABLE_DEPS
--vendor/bin/ssr_setup;DISABLE_DEPS
--vendor/bin/subsystem_ramdump;DISABLE_DEPS
+-vendor/bin/ssr_diag;DISABLE_DEPS|281685bd5d28f76b4c31e66c2869de11af9f81fc
+-vendor/bin/ssr_setup;DISABLE_DEPS|c3b2ac8ba1bb6f0ac9e8772009dfe336b2f15dad
+-vendor/bin/subsystem_ramdump;DISABLE_DEPS|9c3bada3e1ef23105868ddea5135fdcef4ae8de4
 
 # Thermal
 -vendor/bin/thermal-engine;DISABLE_DEPS
-vendor/etc/init/init_thermal-engine.rc
 -vendor/lib/libthermalclient.so;DISABLE_DEPS
 -vendor/lib64/libthermalclient.so;DISABLE_DEPS
 
 # Time
--vendor/app/TimeService/TimeService.apk
+-vendor/app/TimeService/TimeService.apk;NODEXPO
 -vendor/bin/time_daemon;DISABLE_DEPS
 vendor/etc/init/init.time_daemon.rc
 -vendor/lib64/libtime_genoff.so;DISABLE_DEPS
@@ -540,12 +513,10 @@ vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
 -vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so;DISABLE_DEPS
 
 # Widevine
--vendor/bin/hw/android.hardware.drm@1.3-service.widevine;DISABLE_DEPS
-vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc
--vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml
+-vendor/bin/hw/android.hardware.drm@1.1-service.widevine;DISABLE_DEPS
+vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc
 -vendor/lib64/libcpion.so;DISABLE_DEPS
 -vendor/lib64/libhdcpsrm.so;DISABLE_DEPS
--vendor/lib64/liboemcrypto.so;DISABLE_DEPS
 -vendor/lib64/libwvhidl.so;DISABLE_DEPS
 -vendor/lib64/mediadrm/libwvdrmengine.so;DISABLE_DEPS
 
@@ -553,11 +524,11 @@ vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc
 -vendor/lib64/libaoa.so;DISABLE_DEPS
 
 # WLAN - from FP3
--vendor/bin/ptt_socket_app;DISABLE_DEPS
+-vendor/bin/ptt_socket_app;DISABLE_DEPS|5176b59aa44ce0d6133eb4dfd970caf1e97635e6
 
 # Misc
 vendor/etc/public.libraries.txt
 -vendor/lib64/libqsocket.so;DISABLE_DEPS
 
 # Misc - from FP3
--vendor/lib64/libsoc_helper.so;DISABLE_DEPS
+-vendor/lib64/libsoc_helper.so;DISABLE_DEPS|affbc1cc49d3df3a6e174a21bf3fe79c7130d1c0

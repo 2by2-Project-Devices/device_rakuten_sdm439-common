@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-COMMON_PATH := device/xiaomi/mithorium-common
+COMMON_PATH := device/rakuten/sdm439-common
 
 # A/B
 AB_OTA_UPDATER := false
@@ -34,16 +34,8 @@ BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery printk.dev
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE :=  2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
-TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937
-TARGET_KERNEL_VERSION := 4.19
-
-TARGET_KERNEL_CONFIG := \
-    vendor/msm8937-perf_defconfig \
-    vendor/common.config \
-    vendor/debugfs.config \
-    vendor/feature/android-12.config \
-    vendor/feature/erofs.config \
-    vendor/feature/lmkd.config
+TARGET_KERNEL_SOURCE := kernel/rakuten/msm-4.9
+TARGET_KERNEL_VERSION := 4.9
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -164,7 +156,7 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Wi-Fi firmware symlinks
 TARGET_FIRMWARE_WLAN_MAC_BIN_SYMLINK_TARGET ?= /mnt/vendor/persist/wlan_mac.bin
-$(call soong_config_set,MITHORIUM_FIRMWARE_WLAN_MAC_BIN,SYMLINK_TARGET,$(TARGET_FIRMWARE_WLAN_MAC_BIN_SYMLINK_TARGET))
+$(call soong_config_set,SDM439_FIRMWARE_WLAN_MAC_BIN,SYMLINK_TARGET,$(TARGET_FIRMWARE_WLAN_MAC_BIN_SYMLINK_TARGET))
 
 # Inherit from the proprietary version
-include vendor/xiaomi/mithorium-common/BoardConfigVendor.mk
+include vendor/rakuten/sdm439-common/BoardConfigVendor.mk

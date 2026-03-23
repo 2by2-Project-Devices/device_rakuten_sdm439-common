@@ -43,8 +43,8 @@ const std::unordered_map<std::string, FileSystemType> kPartitionTypeMap = {
 };
 
 const std::string kVariantPaths[] = {
-        "/sys/class/huaqin/interface/hw_info/pcba_config",  // Mi439
-        "/sys/xiaomi-msm8937-mach/wingtech_board_id",       // Mi8937 - Wingtech ODM
+        "/sys/class/huaqin/interface/hw_info/pcba_config",  // c330ae
+        "/sys/rakuten-msm8937-mach/wingtech_board_id",       // Mi8937 - Wingtech ODM
 };
 
 const std::string kVariantProps[] = {

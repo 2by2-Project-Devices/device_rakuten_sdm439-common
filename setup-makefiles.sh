@@ -14,7 +14,7 @@ if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 ANDROID_ROOT="${MY_DIR}/../../.."
 
-HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
+HELPER="${ANDROID_ROOT}/vendor/2by2/tools/extract-utils/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
@@ -42,7 +42,7 @@ if [ -z "$ONLY_TARGET" ]; then
     setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${ANDROID_ROOT}" true
 
     # Warning headers and guards
-    write_headers "Mi8917 Mi8937 Mi439 tiare"
+    write_headers "c330ae"
 
     # The standard common blobs
     write_makefiles "${MY_DIR}/proprietary-files-misc.txt" true

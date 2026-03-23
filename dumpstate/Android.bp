@@ -13,10 +13,10 @@
 // limitations under the License.
 
 cc_binary {
-    name: "android.hardware.dumpstate-service.mithorium",
+    name: "android.hardware.dumpstate-service.sdm439",
     relative_install_path: "hw",
-    init_rc: ["dumpstate-mithorium.rc"],
-    vintf_fragments: ["dumpstate-mithorium.xml"],
+    init_rc: ["dumpstate-sdm439.rc"],
+    vintf_fragments: ["dumpstate-sdm439.xml"],
     vendor: true,
     shared_libs: [
         "libbase",
@@ -33,6 +33,6 @@ cc_binary {
         "Dumpstate.cpp",
     ],
     cflags: [
-        "-DLOG_TAG=\"android.hardware.dumpstate-service.mithorium\"",
+        "-DLOG_TAG=\"android.hardware.dumpstate-service.sdm439\"",
     ],
 }
