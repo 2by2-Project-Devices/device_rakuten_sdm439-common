@@ -31,10 +31,24 @@ BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_serial_dm,0x78B0000 firmware_class.path=/vendor/firmware_mnt/image androidboot.usbconfigfs=true loop.max_part=7 buildvariant=user
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_OFFSET := 0x00008000
+BOARD_RAMDISK_OFFSET := 0x01000000
+BOARD_SECOND_OFFSET := 0x00f00000
+BOARD_TAGS_OFFSET := 0x00000100
 BOARD_KERNEL_PAGESIZE :=  2048
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
-TARGET_KERNEL_SOURCE := kernel/rakuten/msm-4.9
+BOARD_MKBOOTIMG_ARGS := \
+    --base $(BOARD_KERNEL_BASE) \
+    --kernel_offset $(BOARD_KERNEL_OFFSET) \
+    --ramdisk_offset $(BOARD_RAMDISK_OFFSET) \
+    --second_offset $(BOARD_SECOND_OFFSET) \
+    --tags_offset $(BOARD_TAGS_OFFSET) \
+    --pagesize $(BOARD_KERNEL_PAGESIZE)
+TARGET_KERNEL_SOURCE := kernel/rakuten/sdm439
 TARGET_KERNEL_VERSION := 4.9
+TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_CONFIG := msm8937-perf_defconfig
+#KERNEL_TOOLCHAIN := $(abspath $(TARGET_KERNEL_SOURCE))/aarch64-linux-android-4.9/bin
+#TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
